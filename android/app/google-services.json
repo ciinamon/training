@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "21008406923",
+    "project_id": "training-df528",
+    "storage_bucket": "training-df528.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:21008406923:android:fe67cef7fdaca0b8ddf78e",
+        "android_client_info": {
+          "package_name": "com.training.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7A9OIwnrA0m7GscgPV6WjT4pEEUVYcz8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

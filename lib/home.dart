@@ -8,8 +8,23 @@ class Home extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Username List'),
+        backgroundColor: Colors.teal,
       ),
-      body: Container(),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            OutlinedButton(onPressed: () {}, child: const Text('C')),
+            const SizedBox(height: 20),
+            OutlinedButton(onPressed: () {}, child: const Text('R')),
+            const SizedBox(height: 20),
+            OutlinedButton(onPressed: () {}, child: const Text('U')),
+            const SizedBox(height: 20),
+            OutlinedButton(onPressed: () {}, child: const Text('D')),
+            const SizedBox(height: 20),
+          ],
+        ),
+      ),
     );
   }
 }
