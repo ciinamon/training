@@ -29,6 +29,12 @@ class Home extends StatelessWidget {
             const SizedBox(height: 20),
             OutlinedButton(
                 onPressed: () async {
+                  await FirebaseFirestore.instance.collection('username').doc('abc').get();
+                },
+                child: const Text('R Document')),
+            const SizedBox(height: 20),
+            OutlinedButton(
+                onPressed: () async {
                   await FirebaseFirestore.instance.collection('username').doc('abc').update({'nama': 'fellisa new'});
                 },
                 child: const Text('U')),
