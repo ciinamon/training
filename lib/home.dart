@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
@@ -16,7 +17,11 @@ class Home extends StatelessWidget {
           children: [
             OutlinedButton(onPressed: () {}, child: const Text('C')),
             const SizedBox(height: 20),
-            OutlinedButton(onPressed: () {}, child: const Text('R')),
+            OutlinedButton(
+                onPressed: () async {
+                  await FirebaseFirestore.instance.collection('username').get();
+                },
+                child: const Text('R')),
             const SizedBox(height: 20),
             OutlinedButton(onPressed: () {}, child: const Text('U')),
             const SizedBox(height: 20),
