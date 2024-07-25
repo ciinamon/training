@@ -33,7 +33,11 @@ class Home extends StatelessWidget {
                 },
                 child: const Text('U')),
             const SizedBox(height: 20),
-            OutlinedButton(onPressed: () {}, child: const Text('D')),
+            OutlinedButton(
+                onPressed: () async {
+                  await FirebaseFirestore.instance.collection('username').doc('abc').delete();
+                },
+                child: const Text('D')),
             const SizedBox(height: 20),
           ],
         ),
