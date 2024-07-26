@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:training/home.dart';
+import 'package:training/input_page.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Material App',
       theme: ThemeData(brightness: Brightness.dark),
-      home: const Home(),
+      home: const InputPage(),
     );
   }
 }

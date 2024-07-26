@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:training/input_page.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -10,6 +11,16 @@ class Home extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Username List'),
         backgroundColor: Colors.teal,
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.teal,
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const InputPage()),
+          );
+        },
+        child: const Icon(Icons.add),
       ),
       body: Center(
         child: Column(
