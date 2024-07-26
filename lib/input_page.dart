@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:training/ctrl.dart';
 
 class InputPage extends StatefulWidget {
   const InputPage({super.key});
@@ -10,6 +11,7 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   final ctrl1 = TextEditingController();
   final ctrl2 = TextEditingController();
+  var isloading = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,15 +41,28 @@ class _InputPageState extends State<InputPage> {
               ),
               const SizedBox(height: 10),
               OutlinedButton(
-                onPressed: () {
+                onPressed: () async {
                   var a = ctrl1.text;
                   var b = int.parse(ctrl2.text);
-                  debugPrint(a);
-                  debugPrint(b.toString());
-                  debugPrint(a.runtimeType.toString());
-                  debugPrint(b.runtimeType.toString());
+                  var data = {
+                    'name': a,
+                    'age': b,
+                  };
+                  setState(() {
+                    isloading = true;
+                  });
+                  await createDocument(data);
+                  setState(() {
+                    isloading = false;
+                  });
+                  ctrl1.clear();
+                  ctrl2.clear();
+                  // ignore: use_build_context_synchronously
+                  Navigator.pop(context);
                 },
-                child: const Text('Submit'),
+                child: Text(
+                  isloading ? 'Loading' : 'Submit',
+                ),
               ),
               const SizedBox(height: 10),
             ],
