@@ -8,3 +8,8 @@ Future<QuerySnapshot<Map<String, dynamic>>> getColl() async {
   var getColl = await FirebaseFirestore.instance.collection('username').get();
   return getColl;
 }
+
+Future<DocumentSnapshot<Map<String, dynamic>>> getDocs(String id) async {
+  var getDocs = await FirebaseFirestore.instance.collection('username').doc(id).get();
+  return getDocs;
+}

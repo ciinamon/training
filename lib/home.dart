@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:training/ctrl.dart';
+import 'package:training/data.dart';
+import 'package:training/detail.dart';
 import 'package:training/input_page.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
+  @override
+  State<Home> createState() => _HomeState();
+}
 
+class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
+    debugPrint('bangun ulang');
     return Scaffold(
       appBar: AppBar(
         title: const Text('Username List'),
@@ -36,10 +43,27 @@ class Home extends StatelessWidget {
                     ...List.generate(
                       snapshot.data!.docs.length,
                       (index) {
+                        final id = snapshot.data!.docs[index].id;
                         return Card(
                           child: ListTile(
                             title: Text((snapshot.data!.docs[index].data()['name'])),
                             subtitle: Text(snapshot.data!.docs[index].id),
+                            tileColor: Colors.transparent,
+                            selectedTileColor: Colors.grey,
+                            selected: selectedId == id,
+                            onTap: () {
+                              setState(() {
+                                selectedId = id;
+                                debugPrint(selectedId);
+                              });
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => PageDetail(
+                                          id: id,
+                                        )),
+                              );
+                            },
                           ),
                         );
                       },
